@@ -62,20 +62,20 @@ class Signup extends Component {
   }
   
   componentDidMount() {
-    axios.get('/auth/checkLogging').
-    then((x) => {
-      console.log('356', x);
-      if (x.data) {
-        console.log(this)
-          this.setState({
-            Loggedin: true
-          })
-      } else {
-        this.setState({
-          Loggedin: false
-        })
-      }
-    })
+    // axios.get('/auth/checkLogging').
+    // then((x) => {
+    //   console.log('356', x);
+    //   if (x.data) {
+    //     console.log(this)
+    //       this.setState({
+    //         Loggedin: true
+    //       })
+    //   } else {
+    //     this.setState({
+    //       Loggedin: false
+    //     })
+    //   }
+    // })
   }
 
   sweetAlert = (message) => {
@@ -116,7 +116,9 @@ class Signup extends Component {
   
       axios.post('/auth/signup', validate)
       .then(response => {
-        console.log(response)
+        if (response.data === 'exist') {
+          this.sweetAlert('User already exist');
+        }
         if (!response.data.error) {
           console.log('We are good')
           this.setState({
@@ -134,7 +136,7 @@ class Signup extends Component {
     if (this.state.Loggedin) {
       return <Redirect to={{ pathname: '/HomePage', state: { referrer: this.state.test } }} />
     } else if (this.state.Signedup) {
-      return <Redirect to={{ pathname: '/signin', state: { referrer: this.state.test } }} />
+      return <Redirect to={{ pathname: '/', state: { referrer: this.state.test } }} />
     } else { 
       return (  
         <div>
@@ -167,8 +169,10 @@ class Signup extends Component {
                 <FormControl margin="normal" required fullWidth>
                   <select onChange={this.handleChange} name="profession" >
                   <option disabled selected>Choose your profession</option>
-                  <option>Teacher</option>
-                  <option>Student</option>
+                  <option>Doctor</option>
+                  <option>Nurse</option>
+                  <option>Pharmacist</option>
+                  <option>Ray Technician</option>
                   </select>
                 </FormControl>
                 <Button
@@ -181,6 +185,7 @@ class Signup extends Component {
                   Sign up
                 </Button>
               </form>
+              <Link to="/"><button style={{'width': '350px', 'margin':'10px'}} className={'btn btn-danger'}>SIGN IN</button></Link>
             </Paper>
           </main>
         </div>

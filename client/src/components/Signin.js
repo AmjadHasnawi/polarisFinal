@@ -58,20 +58,20 @@ class Signin extends Component {
   }
   
   componentDidMount() {
-    axios.get('/auth/checkLogging').
-    then((x) => {
-      console.log('356', x);
-      if (x.data) {
-        console.log(this)
-        this.setState({
-          Loggedin: true
-        })
-      } else {
-        this.setState({
-          Loggedin: false
-        })
-      }
-    })
+    // axios.get('/auth/checkLogging').
+    // then((x) => {
+    //   console.log('356', x);
+    //   if (x.data) {
+    //     console.log(this)
+    //     this.setState({
+    //       Loggedin: true
+    //     })
+    //   } else {
+    //     this.setState({
+    //       Loggedin: false
+    //     })
+    //   }
+    // })
   }
     
   sweetAlert = (message) => {
