@@ -45,6 +45,10 @@ const SignupSchema = new Schema({
 	notifications: {
 		type: String,
 		required: false
+	},
+	date: {
+		type: Date,
+		default: Date.now
 	}
 });
 

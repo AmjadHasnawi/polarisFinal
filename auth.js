@@ -91,13 +91,13 @@ router.post('/image3', (req, res) => {
 })
 
 router.get('/employeeRequests', (req, res) => {
-  signupuser.find({'employeeApproval': false}).then(function (user) {
+  signupuser.find({'employeeApproval': false}).sort({date: -1}).then(function (user) {
       res.send(user)
     })
 })
 
 router.get('/managerRequests', (req, res) => {
-  signupuser.find({'employeeApproval': true, 'managerApproval': false}).then(function (user) {
+  signupuser.find({'employeeApproval': true, 'managerApproval': false}).sort({date: -1}).then(function (user) {
       res.send(user)
     })
 })
