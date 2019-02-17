@@ -5,10 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha",
-    "client": "cd react-client && yarn start",
-    "server": "cd Server_Express && nodemon server.js",
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "start": "cd Server_Express && node server.js",
+    "start": "node server.js",
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "author": "Amjad",
