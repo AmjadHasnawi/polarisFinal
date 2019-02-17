@@ -134,9 +134,9 @@ class Signup extends Component {
   render(){
     const { classes } = this.props; 
     if (this.state.Loggedin) {
-      return <Redirect to={{ pathname: '/HomePage', state: { referrer: this.state.test } }} />
+      return <Redirect to={{ pathname: '/HomePage', state: { referrer: this.state.email } }} />
     } else if (this.state.Signedup) {
-      return <Redirect to={{ pathname: '/', state: { referrer: this.state.test } }} />
+      return <Redirect to={{ pathname: '/Upload', state: { referrer: this.state.email } }} />
     } else { 
       return (  
         <div>
@@ -185,7 +185,7 @@ class Signup extends Component {
                   Sign up
                 </Button>
               </form>
-              <Link to="/"><button style={{'width': '350px', 'margin':'10px'}} className={'btn btn-danger'}>SIGN IN</button></Link>
+              <Link to="/Signin"><button style={{'width': '350px', 'margin':'10px'}} className={'btn btn-danger'}>SIGN IN</button></Link>
             </Paper>
           </main>
         </div>

@@ -22,10 +22,29 @@ const SignupSchema = new Schema({
 		type: String,
 		required: true
 	},
-	image: {
+	image1: {
 		type: String,
 		required: false,
-		default:'https://www.eigenheimreal.com/avatar_mann.png'
+	},
+	image2: {
+		type: String,
+		required: false,
+	},
+	image3: {
+		type: String,
+		required: false,
+	},
+	employeeApproval : {
+		type: Boolean,
+		required: false,
+	},
+	managerApproval : {
+		type: Boolean,
+		required: false,
+	},
+	notifications: {
+		type: String,
+		required: false
 	}
 });
 
